@@ -22,9 +22,9 @@ function App() {
 
   const experience = [
     {
-      title: "Senior QA Engineer",
-      company: "Tech Solutions Inc.",
-      period: "2021 - Present",
+      title: "QA Engineer",
+      company: "IT22 B.V.",
+      period: "2023 - Present",
       responsibilities: [
         "Lead a team of 5 QA engineers in implementing automated testing solutions",
         "Reduced regression testing time by 60% through test automation",
@@ -34,8 +34,8 @@ function App() {
     },
     {
       title: "QA Engineer",
-      company: "Digital Innovations Ltd",
-      period: "2019 - 2021",
+      company: "Ropstam Solutions",
+      period: "2022 - 2023",
       responsibilities: [
         "Developed and executed test plans for web applications",
         "Performed API testing using Postman and Newman",
@@ -47,32 +47,32 @@ function App() {
 
   const education = [
     {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "University Name",
-      year: "2019",
-      details: "Specialized in Software Engineering with focus on Quality Assurance"
+      degree: "Bachelor of Science in Software Engineering",
+      institution: "Capital University of Science & Technology,Islamabad",
+      year: "2024",
+      details: ""
     },
     {
-      degree: "ISTQB Certified Tester",
-      institution: "ISTQB",
+      degree: "ICS",
+      institution: "Chenab College",
       year: "2020",
-      details: "Foundation Level Certification"
+      details: ""
     }
   ];
 
   const projects = [
     {
-      title: "E-commerce Test Framework",
+      title: "Fortes Energy Systems",
       description: "Developed and maintained an end-to-end test automation framework using Selenium and TestNG for a major e-commerce platform.",
-      tech: ["Selenium", "Java", "TestNG", "Jenkins"]
+      tech: ["Playwright", "Java", "TestNG"]
     },
     {
-      title: "API Testing Suite",
+      title: "ERP System",
       description: "Created comprehensive API testing suite using Postman and Newman for RESTful services.",
       tech: ["Postman", "Newman", "JavaScript", "Jenkins"]
     },
     {
-      title: "Performance Testing Project",
+      title: "E-Commerce Platform",
       description: "Conducted load and stress testing for a high-traffic web application using JMeter.",
       tech: ["JMeter", "Performance Testing", "Analysis"]
     }
@@ -311,7 +311,7 @@ function App() {
                   className="project-card rounded-lg p-8 shadow-xl"
                 >
                   <h3 className="text-2xl font-semibold mb-4 text-blue-600">{project.title}</h3>
-                  <p className="text-gray-700 mb-6">{project.description}</p>
+                  <p className="text-white mb-6">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <span 
@@ -381,7 +381,7 @@ function App() {
                   <FaBug className="w-16 h-16 mx-auto text-blue-400 mb-6" />
                 </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">Test Automation</h3>
-                <p className="text-gray-300">
+                <p className="text-black">
                   Building robust automated test suites for web and mobile applications
                 </p>
               </motion.div>
@@ -398,7 +398,7 @@ function App() {
                   <FaCode className="w-16 h-16 mx-auto text-blue-400 mb-6" />
                 </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">API Testing</h3>
-                <p className="text-gray-300">
+                <p className="text-black">
                   Comprehensive testing of RESTful APIs and microservices
                 </p>
               </motion.div>
@@ -415,7 +415,7 @@ function App() {
                   <FaTools className="w-16 h-16 mx-auto text-blue-400 mb-6" />
                 </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">Performance Testing</h3>
-                <p className="text-gray-300">
+                <p className="text-black">
                   Load testing and performance optimization strategies
                 </p>
               </motion.div>
@@ -434,8 +434,8 @@ function App() {
           >
             <p className="text-lg">© {new Date().getFullYear()} Muhammad Usman. All rights reserved.</p>
             <p className="mt-4">
-              <a href="mailto:your.email@example.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                your.email@example.com
+              <a href="mailto:usmanchaudhrry@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">
+                  usmanchaudhrry@gmail.com
               </a>
             </p>
           </motion.div>
