@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaBug, FaCode, FaTools, FaGraduationCap, FaBriefcase } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaBug, FaCode, FaTools, FaGraduationCap, FaBriefcase, FaDownload } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function App() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -12,6 +13,14 @@ function App() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
+
+  const navLinks = [
+    { title: "About", href: "#about" },
+    { title: "Experience", href: "#experience" },
+    { title: "Projects", href: "#projects" },
+    { title: "Skills", href: "#skills" },
+    { title: "Contact", href: "#contact" }
+  ];
 
   const skills = [
     "Test Automation", "Selenium", "Cypress", "JMeter",
@@ -22,7 +31,7 @@ function App() {
 
   const experience = [
     {
-      title: "QA Engineer",
+      title: "Software Quality Assurance Engineer",
       company: "IT22 B.V.",
       period: "2023 - Present",
       responsibilities: [
@@ -49,14 +58,14 @@ function App() {
     {
       degree: "Bachelor of Science in Software Engineering",
       institution: "Capital University of Science & Technology,Islamabad",
-      year: "2024",
+      // year: "2019",
       details: ""
     },
     {
       degree: "ICS",
       institution: "Chenab College",
-      year: "2020",
-      details: ""
+      // year: "2020",
+      // details: "Foundation Level Certification"
     }
   ];
 
@@ -124,8 +133,63 @@ function App() {
 
   return (
     <div className="min-h-screen" ref={targetRef}>
+      {/* Navbar */}
+      <nav className="navbar fixed w-full z-50 px-6 py-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-white text-2xl font-bold"
+          >
+            MU
+          </motion.div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            className="md:hidden text-white"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isNavOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+            </svg>
+          </button>
+
+          {/* Desktop Navigation */}
+<motion.div
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  className={`md:flex items-center gap-8 ${isNavOpen ? 'block absolute top-full left-0 right-0 bg-gray-900 p-4' : 'hidden md:flex'}`}
+>
+  {navLinks.map((link, index) => (
+    <motion.a
+      key={index}
+      href={link.href}
+      target="_blank" // Open in new tab
+      rel="noopener noreferrer" // Security best practice
+      className="nav-link"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {link.title}
+    </motion.a>
+  ))}
+  <motion.a
+    href="https://drive.google.com/file/d/1zDOxdeBKHbuAjNEr200pOs42aPCFFMC8/view?usp=sharing"
+    target="_blank" // Open in new tab
+    rel="noopener noreferrer" // Security best practice
+    className="download-btn"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <FaDownload />
+    Download CV
+  </motion.a>
+</motion.div>
+        </div>
+      </nav>
+
       {/* Header/Hero Section */}
-      <header className="hero-gradient text-white py-32 relative">
+      <header className="hero-gradient text-white py-32 relative pt-40">
         <motion.div
           style={{ opacity, scale }}
           className="container mx-auto px-4 relative z-10"
@@ -190,7 +254,7 @@ function App() {
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                href="mailto:your.email@example.com" 
+                href="mailto:usmanchaudhrry@gmail.com" 
                 className="text-white hover:text-blue-200"
               >
                 <MdEmail size={32} />
@@ -201,7 +265,7 @@ function App() {
       </header>
 
       {/* Experience Section */}
-      <section className="py-32 mesh-gradient">
+      <section id="experience" className="py-32 mesh-gradient">
         <div className="container mx-auto px-4">
           <motion.div
             variants={containerVariants}
@@ -235,39 +299,39 @@ function App() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
-        <div className="container mx-auto px-4">
+     {/* Education Section */}
+<section id="education" className="py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
+  <div className="container mx-auto px-4">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <h2 className="section-title text-center flex items-center justify-center gap-2 mb-16">
+        <FaGraduationCap className="text-blue-600" />
+        Education & Certifications
+      </h2>
+      <div className="max-w-4xl mx-auto">
+        {education.map((edu, index) => (
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            key={index}
+            variants={cardVariants}
+            whileHover="hover"
+            className="mb-8 bg-gray-800 rounded-lg p-8 shadow-xl" // Dark background
           >
-            <h2 className="section-title text-center flex items-center justify-center gap-2 mb-16">
-              <FaGraduationCap className="text-blue-600" />
-              Education & Certifications
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              {education.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  whileHover="hover"
-                  className="mb-8 gradient-border rounded-lg p-8 shadow-xl"
-                >
-                  <h3 className="text-2xl font-semibold text-blue-600">{edu.degree}</h3>
-                  <p className="text-gray-600 mb-4">{edu.institution} | {edu.year}</p>
-                  <p className="text-gray-700">{edu.details}</p>
-                </motion.div>
-              ))}
-            </div>
+            <h3 className="text-2xl font-semibold text-white">{edu.degree}</h3> {/* White text */}
+            <p className="text-white mb-4">{edu.institution} | {edu.year}</p> {/* White text */}
+            <p className="text-white">{edu.details}</p> {/* White text */}
           </motion.div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Skills Section */}
-      <section className="py-32 bg-gradient-to-tr from-blue-900 to-indigo-900 text-white">
+      <section id="skills" className="py-32 bg-gradient-to-tr from-blue-900 to-indigo-900 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             variants={containerVariants}
@@ -282,7 +346,7 @@ function App() {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.1, rotate: 3 }}
-                  className="skill-badge bg-white/10 text-white border border-white/20"
+                  className="skill-badge animate-glow"
                 >
                   {skill}
                 </motion.span>
@@ -293,7 +357,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-32 projects-background relative">
+      <section id="projects" className="py-32 projects-background relative">
         <div className="container mx-auto px-4">
           <motion.div
             variants={containerVariants}
@@ -311,7 +375,7 @@ function App() {
                   className="project-card rounded-lg p-8 shadow-xl"
                 >
                   <h3 className="text-2xl font-semibold mb-4 text-blue-600">{project.title}</h3>
-                  <p className="text-white mb-6">{project.description}</p>
+                  <p className="text-gray-700 mb-6">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <span 
@@ -358,7 +422,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 bg-gradient-to-tr from-gray-900 to-blue-900 text-white">
+      <section id="services" className="py-32 bg-gradient-to-tr from-gray-900 to-blue-900 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             variants={containerVariants}
@@ -381,7 +445,7 @@ function App() {
                   <FaBug className="w-16 h-16 mx-auto text-blue-400 mb-6" />
                 </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">Test Automation</h3>
-                <p className="text-black">
+                <p className="text-gray-300">
                   Building robust automated test suites for web and mobile applications
                 </p>
               </motion.div>
@@ -398,7 +462,7 @@ function App() {
                   <FaCode className="w-16 h-16 mx-auto text-blue-400 mb-6" />
                 </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">API Testing</h3>
-                <p className="text-black">
+                <p className="text-gray-300">
                   Comprehensive testing of RESTful APIs and microservices
                 </p>
               </motion.div>
@@ -415,7 +479,7 @@ function App() {
                   <FaTools className="w-16 h-16 mx-auto text-blue-400 mb-6" />
                 </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">Performance Testing</h3>
-                <p className="text-black">
+                <p className="text-gray-300">
                   Load testing and performance optimization strategies
                 </p>
               </motion.div>
@@ -425,7 +489,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer id="contact" className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -435,7 +499,7 @@ function App() {
             <p className="text-lg">© {new Date().getFullYear()} Muhammad Usman. All rights reserved.</p>
             <p className="mt-4">
               <a href="mailto:usmanchaudhrry@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                  usmanchaudhrry@gmail.com
+              usmanchaudhrry@gmail.com
               </a>
             </p>
           </motion.div>
