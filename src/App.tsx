@@ -245,7 +245,7 @@ function App() {
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                href="https://linkedin.com/in/yourusername" 
+                href="https://linkedin.com/in/usmanchaudhrry" 
                 className="text-white hover:text-blue-200"
               >
                 <FaLinkedin size={32} />
@@ -321,7 +321,7 @@ function App() {
             className="mb-8 bg-gray-800 rounded-lg p-8 shadow-xl" // Dark background
           >
             <h3 className="text-2xl font-semibold text-white">{edu.degree}</h3> {/* White text */}
-            <p className="text-white mb-4">{edu.institution} | {edu.year}</p> {/* White text */}
+            {/* <p className="text-white mb-4">{edu.institution} | {edu.year}</p> White text */}
             <p className="text-white">{edu.details}</p> {/* White text */}
           </motion.div>
         ))}
