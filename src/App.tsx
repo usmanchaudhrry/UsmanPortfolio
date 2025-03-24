@@ -164,8 +164,6 @@ function App() {
     <motion.a
       key={index}
       href={link.href}
-      target="_blank" // Open in new tab
-      rel="noopener noreferrer" // Security best practice
       className="nav-link"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
