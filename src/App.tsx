@@ -35,10 +35,10 @@ function App() {
       company: "IT22 B.V.",
       period: "2023 - Present",
       responsibilities: [
-        "Lead a team of 5 QA engineers in implementing automated testing solutions",
+        "Skilled in using tools like Postman for API validation and testing",
         "Reduced regression testing time by 60% through test automation",
-        "Implemented CI/CD pipeline for automated testing",
-        "Developed and maintained test frameworks using Selenium and Cypress"
+        "Created and executed detailed test plans, test cases, and test scripts for various projects.",
+        "Developed and maintained test frameworks using Playwright and Core Java"
       ]
     },
     {
