@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaBug, FaCode, FaTools, FaGraduationCap, FaBriefcase, FaDownload } from 'react-icons/fa';
+import {FaLinkedin, FaBug, FaCode, FaTools, FaGraduationCap, FaBriefcase, FaDownload } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { useRef, useState } from 'react';
 
