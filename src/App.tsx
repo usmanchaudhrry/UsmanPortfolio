@@ -23,10 +23,10 @@ function App() {
   ];
 
   const skills = [
-    "Test Automation", "Selenium", "Cypress", "JMeter",
+    "Test Automation", "Playwright", "Cypress", "JMeter",
     "API Testing", "Performance Testing", "Test Planning",
-    "JIRA", "Agile Methodologies", "CI/CD", "Git",
-    "Python", "JavaScript", "SQL", "Postman"
+    "JIRA", "Agile Methodologies", "Git",
+    "Java", "JavaScript", "Postman"
   ];
 
   const experience = [
@@ -78,7 +78,7 @@ function App() {
     {
       title: "ERP System",
       description: "Created comprehensive API testing suite using Postman and Newman for RESTful services.",
-      tech: ["Postman", "Newman", "JavaScript", "Jenkins"]
+      tech: ["Postman", "JavaScript"]
     },
     {
       title: "E-Commerce Platform",
@@ -212,7 +212,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Senior QA Engineer
+              QA Engineer
             </motion.h2>
             <motion.p 
               className="text-xl max-w-3xl mx-auto leading-relaxed"
@@ -230,7 +230,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              <motion.a 
+              {/* <motion.a 
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -238,7 +238,7 @@ function App() {
                 className="text-white hover:text-blue-200"
               >
                 <FaGithub size={32} />
-              </motion.a>
+              </motion.a> */}
               <motion.a 
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 whileTap={{ scale: 0.9 }}
@@ -284,8 +284,8 @@ function App() {
                   className="mb-8 glass-card rounded-lg p-8 shadow-xl"
                 >
                   <h3 className="text-2xl font-semibold text-blue-600">{exp.title}</h3>
-                  <p className="text-gray-600 mb-4">{exp.company} | {exp.period}</p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <p className="text-white-600 mb-4">{exp.company} | {exp.period}</p>
+                  <ul className="list-disc list-inside text-white-700 space-y-2">
                     {exp.responsibilities.map((resp, idx) => (
                       <li key={idx}>{resp}</li>
                     ))}
